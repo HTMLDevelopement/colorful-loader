@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        section {
+            display: flex;
+            flex-direction: column; /* Stacks the loader and text vertically */
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Adds space between the loader and text */
+            min-height: 100vh;
+            background: #042104;
+            animation: animate 10s linear infinite;
+        }
+        @keyframes animate {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+        section .loader {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        section .loader span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(calc(18deg * var(--i)));
+        }
+        section .loader span::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            background: #00ff0a;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff0a,
+                        0 0 20px #00ff0a,
+                        0 0 40px #00ff0a,
+                        0 0 60px #00ff0a,
+                        0 0 80px #00ff0a,
+                        0 0 100px #00ff0a;
+            animation: animate2 2s linear infinite;
+            animation-delay: calc(0.1s * var(--i));
+        }
+        @keyframes animate2 {
+            0% {
+                transform: scale(1);
+            }
+            80%, 100% {
+                transform: scale(0);
+            }
+        }
+        /* Styling for the loading text */
+        section .loading-text {
+            color: #00ff0a;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #00ff0a,
+                         0 0 20px #00ff0a;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="loader">
+            <span style="--i:1"></span>
+            <span style="--i:2"></span>
+            <span style="--i:3"></span>
+            <span style="--i:4"></span>
+            <span style="--i:5"></span>
+            <span style="--i:6"></span>
+            <span style="--i:7"></span>
+            <span style="--i:8"></span>
+            <span style="--i:9"></span>
+            <span style="--i:10"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:13"></span>
+            <span style="--i:14"></span>
+            <span style="--i:15"></span>
+            <span style="--i:16"></span>
+            <span style="--i:17"></span>
+            <span style="--i:18"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+        </div>
+        <p class="loading-text">Loading, please wait...</p>
+    </section>
+</body>
+</html>
